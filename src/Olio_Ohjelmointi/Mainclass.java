@@ -3,7 +3,7 @@
  * LUT Olio-ohjelmointi
  * Prints hello world
  */
-
+package Olio_Ohjelmointi;
 /**
  *
  * @author Teemu Mäntykallio, 0371460
