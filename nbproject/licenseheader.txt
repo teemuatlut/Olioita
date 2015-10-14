@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}${nameAndExt}
+${licensePrefix}LUT Olio-ohjelmointi | ${date}
+${licensePrefix}
+${licensePrefix}Author: Teemu Mäntykallio
+<#if licenseLast??>
+${licenseLast}
+</#if>
