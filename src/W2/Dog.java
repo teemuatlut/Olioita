@@ -1,21 +1,51 @@
 /*
  * Dog.java
- * LUT Olio-ohjelmointi | 26.9.2015
+ * LUT Olio-ohjelmointi | 30.9.2015
  * 
  * Author: Teemu Mäntykallio
  */
 package W2;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 public class Dog {
-    String name, says;
+    private String name, says;
     
-    public Dog(String strInput) {
-        name = strInput;
+    public Dog(String inputStr) {
+        inputStr = inputStr.trim();
+        if (inputStr.isEmpty()) {
+            name = "Doge";    
+        } else {
+            name = inputStr;
+        }
+        
         System.out.println("Hei, nimeni on " + name + "!");
+        says = "Much wow!";
     }
     
-    public void speak(String strInput){
-        says = strInput;
-        System.out.println(name + ": " + says + "!");
+    public boolean speak(String inputStr){
+        inputStr = inputStr.trim();
+        if (!(inputStr.isEmpty())) {
+            //says = inputStr;
+            Scanner sc = new Scanner(inputStr);
+            while (sc.hasNext()) {
+                System.out.println(sc.next());
+                sc.
+                //if (sc.hasNextBoolean()) {
+                    //System.out.println("Such boolean: " + sc.nextBoolean());
+//                }
+//                if (sc.hasNextInt()) {
+//                    System.out.println("Such integer: " + sc.nextInt());
+//                }
+            }
+            //System.out.println(name + ": " + says);
+            return false;
+        } else {
+            System.out.println(name + ": " + says);
+            return true;
+        }
     }
 }

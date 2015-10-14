@@ -1,6 +1,6 @@
 /*
  * Mainclass.java
- * LUT Olio-ohjelmointi | 26.9.2015
+ * LUT Olio-ohjelmointi | 30.9.2015
  * 
  * Author: Teemu Mäntykallio
  */
@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Mainclass {
-    public static void main(String[] args) {        
+    public static void main(String[] args) {
+        boolean saysIsEmpty;
         BufferedReader br = new BufferedReader(
             new InputStreamReader(System.in)
         );
@@ -21,9 +22,11 @@ public class Mainclass {
             String name = br.readLine();
             Dog doge = new Dog(name);
             
-            System.out.print("Mitä koira sanoo: ");
-            String says = br.readLine();
-            doge.speak(says);
+            do {
+                System.out.print("Mitä koira sanoo: ");
+                String says = br.readLine();
+                saysIsEmpty = doge.speak(says);
+            } while (saysIsEmpty);
         } catch (IOException ex) {}
     }
 }
