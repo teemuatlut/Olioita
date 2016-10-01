@@ -1,8 +1,8 @@
 /*
  * Dog.java
- * LUT Olio-ohjelmointi | 30.9.2015
+ * LUT Olio-ohjelmointi | 1.10.2016
  * 
- * Author: Teemu Mäntykallio
+ * Author: Teemu Mäntykallio, 0371460
  */
 package W2;
 
@@ -22,30 +22,39 @@ public class Dog {
             name = inputStr;
         }
         
-        System.out.println("Hei, nimeni on " + name + "!");
+        System.out.println("Hei, nimeni on " + name);
         says = "Much wow!";
     }
     
-    public boolean speak(String inputStr){
+    public void speak(String inputStr){
         inputStr = inputStr.trim();
-        if (!(inputStr.isEmpty())) {
-            //says = inputStr;
+        if (!inputStr.isEmpty()) {
+//            System.out.print(name);
+//            System.out.print(": ");
+//            System.out.println(inputStr);
             Scanner sc = new Scanner(inputStr);
             while (sc.hasNext()) {
-                System.out.println(sc.next());
-                sc.
-                //if (sc.hasNextBoolean()) {
-                    //System.out.println("Such boolean: " + sc.nextBoolean());
-//                }
-//                if (sc.hasNextInt()) {
-//                    System.out.println("Such integer: " + sc.nextInt());
-//                }
+                if (sc.hasNextBoolean()) {
+                    System.out.println("Such boolean: " + sc.next());
+                } else if (sc.hasNextInt()) {
+                    System.out.println("Such integer: " + sc.next());
+                } else {
+                    System.out.println(sc.next());
+                }
             }
-            //System.out.println(name + ": " + says);
-            return false;
         } else {
-            System.out.println(name + ": " + says);
-            return true;
+            System.out.print(name);
+            System.out.print(": ");
+            System.out.println(says);
+            
+            BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in)
+            );
+            try {
+                System.out.print("Mitä koira sanoo: ");
+                String speakStr = br.readLine();
+                speak(speakStr);
+            } catch (IOException ex) {}
         }
     }
 }
