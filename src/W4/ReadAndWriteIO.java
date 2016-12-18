@@ -1,6 +1,6 @@
 /*
  * ReadAndWriteIO.java
- * LUT Olio-ohjelmointi | 14.10.2015
+ * LUT Olio-ohjelmointi | 21.10.2016
  * 
  * Author: Teemu Mäntykallio
  */
@@ -22,7 +22,7 @@ import java.util.zip.ZipInputStream;
  * @author Teemu
  */
 public class ReadAndWriteIO {
-    public String readFile(String filePath) throws FileNotFoundException, IOException {
+    public void readFile(String filePath) throws FileNotFoundException, IOException {
         String outputStr;
         BufferedReader myReader = new BufferedReader(new FileReader(filePath));
         outputStr = myReader.readLine();
@@ -30,27 +30,27 @@ public class ReadAndWriteIO {
             System.out.println(outputStr);
             outputStr = myReader.readLine();
         };
+
         myReader.close();
-        return outputStr;
+        //return outputStr;
     }
-    
+
     public void readAndWrite(String inFile, String outFile) throws FileNotFoundException, IOException {
         String outputStr = "", line = null;
         BufferedReader myReader = new BufferedReader(new FileReader(inFile));
         BufferedWriter myWriter = new BufferedWriter(new FileWriter(outFile));
         line = myReader.readLine();
         while (line != null) {
-            if (line.length() < 30 && !(line.trim().isEmpty()) && line.contains("v"))
+            //if (line.length() < 30 && !(line.trim().isEmpty()) && line.contains("v"))
                 outputStr += line + "\n";
             line = myReader.readLine();
-            //System.out.println(line);
         };
         System.out.println(outputStr);
         myWriter.write(outputStr);
         myReader.close();
         myWriter.close();
     }
-    
+
     public void readZip(String filePath) throws FileNotFoundException, IOException {
         try {
             ZipInputStream in = new ZipInputStream(new FileInputStream(filePath));

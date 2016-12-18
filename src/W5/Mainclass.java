@@ -2,7 +2,7 @@
  * Mainclass.java
  * LUT Olio-ohjelmointi | 28.10.2015
  * 
- * Author: Teemu M�ntykallio
+ * Author: Teemu Mäntykallio, 0371460
  */
 package W5;
 
@@ -12,6 +12,7 @@ package W5;
  */
 public class Mainclass {
     public static void main(String[] args) {
-        
+        Car myCar = new Car();
+        myCar.Print();
     }
 }
